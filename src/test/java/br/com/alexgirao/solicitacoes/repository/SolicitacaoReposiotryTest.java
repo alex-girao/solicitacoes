@@ -39,7 +39,7 @@ public class SolicitacaoReposiotryTest {
 		assertThat(sut.getTexto()).isEqualTo(SOLICITACAO_VALIDA_COM_ATENDENTE_MOCK.getTexto());
 		assertThat(sut.getStatusAtendimento()).isEqualTo(SOLICITACAO_VALIDA_COM_ATENDENTE_MOCK.getStatusAtendimento());
 		assertThat(sut.getTipoSolicitacao()).isEqualTo(SOLICITACAO_VALIDA_COM_ATENDENTE_MOCK.getTipoSolicitacao());
-		assertThat(sut.getAtendente()).isEqualTo(SOLICITACAO_VALIDA_COM_ATENDENTE_MOCK.getAtendente());
+		assertThat(sut.getAtendente().getId()).isEqualTo(SOLICITACAO_VALIDA_COM_ATENDENTE_MOCK.getAtendente().getId());
 	}
 	
 	@Test

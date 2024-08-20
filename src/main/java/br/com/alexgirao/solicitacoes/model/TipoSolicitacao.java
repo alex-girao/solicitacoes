@@ -8,20 +8,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import br.com.alexgirao.solicitacoes.controller.response.TipoSolicitacaoResponse;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 /**
  * 
  * @author Alex Girao
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
 @Table(name = "tipo_solicitacao")
 public class TipoSolicitacao extends ApiModel {

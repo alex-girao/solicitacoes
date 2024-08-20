@@ -26,11 +26,11 @@ import lombok.ToString;
  * 
  * @author Alex Girao
  */
-@EqualsAndHashCode
 @Data
+@EqualsAndHashCode(callSuper = false)
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
 @Table(name = "solicitacao")
 public class Solicitacao extends ApiModel {

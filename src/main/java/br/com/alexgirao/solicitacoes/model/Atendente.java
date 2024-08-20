@@ -13,13 +13,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.*;
 import org.hibernate.annotations.Where;
 
 import br.com.alexgirao.solicitacoes.controller.response.AtendenteResponse;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 
 /**
@@ -27,6 +24,7 @@ import lombok.NoArgsConstructor;
  * @author Alex Girao
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -59,5 +57,5 @@ public class Atendente extends ApiModel {
 	public String toString() {
 		return "Atendente [id=" + id + ", nome=" + nome + ", timeAtendimento=" + (!Objects.isNull(timeAtendimento) ? timeAtendimento.getNome() : "") + "]";
 	}
-	
+
 }
