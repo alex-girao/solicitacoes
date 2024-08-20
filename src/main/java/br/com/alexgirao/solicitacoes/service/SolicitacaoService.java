@@ -57,9 +57,6 @@ public class SolicitacaoService {
 
 	@Transactional
 	public Solicitacao finalizar(Long id) {
-		
-		List<Solicitacao> list = solicitacaoRepository.findAll();
-		
 		Optional<Solicitacao> solicitacao = solicitacaoRepository.findById(id);
 		validarFinalizacao(solicitacao);
 		atualizarStatus(solicitacao, StatusAtendimentoEnum.FINALIZADA);

@@ -1,6 +1,7 @@
 package br.com.alexgirao.solicitacoes.model;
 
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +19,6 @@ import br.com.alexgirao.solicitacoes.controller.response.AtendenteResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 
@@ -54,6 +54,10 @@ public class Atendente extends ApiModel {
 				.nome(nome)
 				.build();
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Atendente [id=" + id + ", nome=" + nome + ", timeAtendimento=" + (!Objects.isNull(timeAtendimento) ? timeAtendimento.getNome() : "") + "]";
+	}
 	
 }

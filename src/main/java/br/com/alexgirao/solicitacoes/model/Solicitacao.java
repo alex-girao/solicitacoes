@@ -13,21 +13,20 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
-
 import br.com.alexgirao.solicitacoes.controller.response.SolicitacaoResponse;
 import br.com.alexgirao.solicitacoes.enums.StatusAtendimentoEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * 
  * @author Alex Girao
  */
-//@Getter
-//@Setter
+@EqualsAndHashCode
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -57,15 +56,17 @@ public class Solicitacao extends ApiModel {
 
 	public SolicitacaoResponse toResponse() {
 		return SolicitacaoResponse.builder()
-				.id(id).texto(texto)
+				.id(id)
+				.texto(texto)
 				.statusAtendimento(statusAtendimento)
 				.tipoSolicitacao(tipoSolicitacao.toResponse())
 				.atendente(!Objects.isNull(atendente) ? atendente.toDTO() : null).build();
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		return EqualsBuilder.reflectionEquals(obj, this);
+	public String toString() {
+		return "Solicitacao [id=" + id + ", texto=" + texto + ", statusAtendimento=" + statusAtendimento
+				+ ", tipoSolicitacao=" + tipoSolicitacao + ", atendente=" + (!Objects.isNull(atendente) ? atendente.getNome() : "") + "]";
 	}
-
+	
 }

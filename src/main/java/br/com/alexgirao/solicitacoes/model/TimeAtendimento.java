@@ -1,6 +1,8 @@
 package br.com.alexgirao.solicitacoes.model;
 
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +16,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * 
@@ -37,5 +40,10 @@ public class TimeAtendimento extends ApiModel{
 	@ManyToOne
 	@JoinColumn(name = "id_tipo_solicitacao", nullable = false)
 	private TipoSolicitacao tipoSolicitacao;
+
+	@Override
+	public String toString() {
+		return "TimeAtendimento [id=" + id + ", nome=" + nome + ", tipoSolicitacao=" + (!Objects.isNull(tipoSolicitacao) ? tipoSolicitacao.getNome() : "") + "]";
+	}
 	
 }
